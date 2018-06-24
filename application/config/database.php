@@ -75,9 +75,9 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => '148.72.232.175',
-	'username' => 'jsonwrapper',
-	'password' => 'JsonWrapper@56929',
+	'hostname' => '127.0.0.1',
+	'username' => 'root',
+	'password' => '',
 	'database' => 'jsonwrapper',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',

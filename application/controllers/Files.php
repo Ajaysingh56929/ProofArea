@@ -24,7 +24,7 @@ class Files extends CI_Controller {
 		$this->load->model('File_model');
 		$this->load->helper(array('form', 'url','url_helper'));
 		$this->load->library(array('session','upload'));
-		$this->session->set_userdata('userId',4);
+		$this->session->set_userdata('userId',1);
 	}
 	public function getCss(){
 		header("Content-type: text/css; charset: UTF-8");
