@@ -24,12 +24,14 @@ class Files extends CI_Controller {
 		$this->load->model('File_model');
 		$this->load->helper(array('form', 'url','url_helper'));
 		$this->load->library(array('session','upload'));
-		$this->session->set_userdata('userId',1);
+		//$this->session->set_userdata('userId',1);
 	}
 	public function getCss(){
 		header("Content-type: text/css; charset: UTF-8");
-		$userAppData = $this->File_model->getCssModel($this->getUserId());
-		$appColor = '#EE4884';
+		$userAppData = $this->File_model->getCssModel(null);
+		$userData = $this->File_model->getCssModel($this->getUserId());
+
+     	$appColor = $userData[0]->color;
 		foreach ($userAppData as $row) {
 			echo '.u_'.$row->id.':after{content:"'.substr($row->firstname,0,1).'";}';
 			$name = $row->firstname." ".$row->lastname;

@@ -13,7 +13,11 @@ class File_model extends CI_Model{
 		$this->tb_notification=$this->db->dbprefix('tb_notification');
 	}
 	public function getCssModel($loginId){
-		$sql = 'SELECT * FROM '.$this->tb_user;
+        if(!empty($loginId)){
+            $sql = 'SELECT * FROM '.$this->tb_user.' where id="'.$loginId.'"';
+        }else{
+            $sql = 'SELECT * FROM '.$this->tb_user;
+        }
 		$query=$this->db->query($sql);
         if($query->num_rows()>0){
         	return $query->result();
