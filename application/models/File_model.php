@@ -68,7 +68,7 @@ class File_model extends CI_Model{
 		$query=$this->db->query($sql);
         if($query->num_rows()>0){
         	$notifi_to = $this->setNotification("addComment",$query->result(),$loginId);
-        	return array('status' => true,'data'=>$query->result(),'notification' => array('notifi_record' =>$notifi_to));
+        	return array('status' => true,'data'=>$query->result(),'notification' => array('data'=>$query->result()[0],'notifi_record' =>$notifi_to));
 		}else{
 			return array('status' => false);
 		}
@@ -112,6 +112,7 @@ class File_model extends CI_Model{
         $query=$this->db->query($sql);
         if($query->num_rows()>0){
         	foreach ($query->result() as $Item) {
+                print_r($Item);
         		unlink($Item->dataUrl);
         	}
         }
